@@ -1,0 +1,55 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Journal Book</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="{% url 'home' %}">Journal Book</a>
+        </li>
+        {% if user.is_authenticated %}
+
+        <li>Logged in as
+          <span class="logged-user">{{ user.username }}</span>
+        </li>
+
+        {% endif %}
+
+        <li>
+          {% if request.path != '/user/signup/' %}
+          <a href="/user/signup">
+            <button class="signup-btn">Sign up</button>
+          </a>
+          {% endif %}
+
+          {% if user.is_authenticated %}
+          <form method="POST" action="{% url 'user:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
+          {% elif request.path != '/user/login/' %}
+          <a href="/user/login">
+            <button class="signup-btn">Log in</button>
+          </a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+  </div>
+</body>
+
+<script src="{% static 'script.js' %}">
+</script>
+
+</html>

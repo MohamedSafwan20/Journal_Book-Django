@@ -1,0 +1,8 @@
+@mixin primary-transition($forKeys, $duration) {
+  transition: $forKeys ease-in-out $duration;
+}
+
+@mixin zoom-out-transition($forKeys, $duration) {
+  transform: scale(1);
+  transition: $forKeys ease-in-out $duration;
+}

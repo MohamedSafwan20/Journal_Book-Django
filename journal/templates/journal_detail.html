@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+
+<div class="journal-detail-content">
+    <h4 class="journal-title">Date created: <span>{{ data.date_created }}</span></h4>
+    <h2 align="center">{{ data.title }}</h2>
+    <p>{{ data.journal_content }}</p>
+
+    {% if data.key_moments %}
+
+    <h4 class="journal-title">Special Moments:</h4>
+    <ol>
+        {% for moment in keyMoments %}
+
+        <li>{{ moment }}</li>
+
+        {% endfor %}
+    </ol>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

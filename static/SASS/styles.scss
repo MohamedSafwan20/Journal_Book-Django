@@ -1,0 +1,145 @@
+@import "variables";
+@import "transition";
+@import "buttons";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  max-width: 75vw;
+  margin: 0 auto;
+}
+
+.navbar ul {
+  width: 100%;
+  display: flex;
+  padding: 0px;
+  justify-content: space-between;
+  li {
+    list-style-type: none;
+    letter-spacing: 1px;
+    font-size: 18px;
+    a {
+      font-size: 30px;
+      font-weight: bolder;
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.logged-user {
+  color: $primary-color;
+  font-weight: 600;
+}
+
+.logout-btn {
+  @include outline-btn;
+}
+
+.no-journals {
+  text-align: center;
+  font-weight: normal;
+}
+
+footer {
+  text-align: center;
+  margin: 5vh 0;
+  .add-journal-btn {
+    @include primary-btn;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+form {
+  margin: auto 1vw;
+  display: inline-block;
+  input,
+  textarea {
+    min-width: 37vw;
+    display: block;
+    min-width: 45vw;
+    margin-top: 2vh;
+  }
+}
+
+.journal-submit-btn {
+  @include primary-btn;
+}
+
+.journal-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2vw;
+  .journal {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 4px;
+    box-shadow: $default-box-shadow;
+    .journal-title,
+    ol,
+    .journal-content {
+      margin: 0.5vh;
+    }
+  }
+}
+
+.journal:hover {
+  border: 2px solid $primary-color;
+  @include zoom-out-transition(box-shadow, 0.2s);
+}
+
+.login-form-footer {
+  max-width: 45vw;
+  text-align: center;
+  button {
+    @include primary-btn;
+  }
+}
+
+.journal-detail-content {
+  max-width: 60vw;
+  margin: 0 auto;
+}
+
+.journal-title span {
+  font-weight: normal;
+}
+
+.signup-btn {
+  @include outline-btn;
+}
+
+.signup-submit-btn {
+  @include primary-btn;
+}
+
+.signup-form {
+  & > p span {
+    color: rgba(153, 153, 153, 0.644);
+  }
+  & > ul li {
+    color: rgba(153, 153, 153, 0.644);
+  }
+}
+
+.errorlist {
+  list-style-type: none;
+  & ~ ul {
+    li {
+    }
+  }
+  & ~ p {
+    span {
+      color: rgba(153, 153, 153, 0.644);
+    }
+  }
+  li {
+    letter-spacing: 1px;
+    color: $error !important;
+  }
+}

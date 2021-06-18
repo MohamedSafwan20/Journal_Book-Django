@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+{% if journalList %}
+<h1 align="center">My Journals</h1>
+<div class="journal-list">
+
+    {% for journal in journalList %}
+
+    <a class="journal" href="journal/{{ journal.id }}">
+        <h2 class="journal-title" align="center">{{ journal.title }}</h2>
+        <p class="journal-content">{{ journal.journal_content }}</p>
+
+        {% if journal.key_moments %}
+
+        <h4 class="journal-title">Special Moments:</h4>
+        <ol>
+            {% for moment in keyMoments %}
+
+            <li>{{ moment }}</li>
+
+            {% endfor %}
+        </ol>
+
+        {% endif %}
+
+    </a>
+    {% endfor %}
+
+    {% else %}
+
+    <h1 class="no-journals">No Journal created</h1>
+
+    {% endif %}
+</div>
+<footer>
+    <a href="{% url 'add-journal'%}" class="add-journal-btn">Add New Journal</a>
+</footer>
+
+{% endblock %}

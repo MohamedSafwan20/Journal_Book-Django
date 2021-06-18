@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {% if titleError %}
+    <span class="error">{{ titleError }}</span>
+    {% endif %}
+    {{ form.as_p }}
+    <button type="submit" class="journal-submit-btn">Save</button>
+</form>
+
+{% endblock %}
